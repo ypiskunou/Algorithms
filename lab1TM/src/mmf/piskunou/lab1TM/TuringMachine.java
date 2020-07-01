@@ -3,7 +3,7 @@ package mmf.piskunou.lab1TM;
 import java.util.ArrayList;
 
 public class TuringMachine {
-    public TuringMachine(int state, Head head, ArrayList<Transition> turingProgram) {
+    TuringMachine(int state, Head head, ArrayList<Transition> turingProgram) throws IllegalArgumentException{
         if (head == null) throw new IllegalArgumentException(head.getClass().getName());
         if (turingProgram == null) throw new IllegalArgumentException(turingProgram.getClass().getTypeName());
 
@@ -27,14 +27,13 @@ public class TuringMachine {
         return turingProgram;
     }
 
-    public TuringMachine Step() {
+    private TuringMachine Step() {
         if (state < State.WORK.ordinal()) return this;
 
         Transition transition = new Transition(State.WORK.ordinal(), Head.BLANK,
                 head.Read(), HeadDirection.NoMove, State.ERROR.ordinal());
         for(Transition t: turingProgram)
         {
-            int i=0;
             if(t.getInitialState()==state && t.getRead() == head.Read()) {
                 transition = t;
                 break;

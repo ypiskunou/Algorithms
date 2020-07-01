@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Head {
     public static final char BLANK = '_';
 
-    public Head(ArrayList<Character> tape, int headPosition)
+    public Head(ArrayList<Character> tape, int headPosition) throws IndexOutOfBoundsException, NullPointerException
     {
         if (tape == null) throw new NullPointerException();
 
