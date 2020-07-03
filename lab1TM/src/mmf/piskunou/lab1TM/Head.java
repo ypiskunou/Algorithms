@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Head {
     public static final char BLANK = '_';
 
-    public Head(ArrayList<Character> tape, int headPosition) throws IndexOutOfBoundsException, NullPointerException
+    Head(ArrayList<Character> tape, int headPosition) throws IndexOutOfBoundsException, NullPointerException
     {
         if (tape == null) throw new NullPointerException();
 
@@ -26,7 +26,7 @@ public class Head {
         return new Head(tape, headPosition);
     }
 
-    public Head MoveLeft() {
+    private Head MoveLeft() {
         if (headPosition == 0)
         {
             tape.add(0, BLANK);
@@ -35,7 +35,7 @@ public class Head {
         return new Head(tape, headPosition-1);
     }
 
-    public Head MoveRight() {
+    private Head MoveRight() {
         if (headPosition == tape.size()-1)
         {
             tape.add(headPosition+1, BLANK);

@@ -3,7 +3,7 @@ package mmf.piskunou.lab1TM;
 
 public class Transition
 {
-    public Transition(int initialState, char read, char write, HeadDirection headDirection, int nextState)
+    Transition(int initialState, char read, char write, HeadDirection headDirection, int nextState)
     {
         this.initialState = initialState;
         this.read = read;
